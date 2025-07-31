@@ -12,11 +12,16 @@ recipe-app/
 │   ├── JWT Authentication
 │   ├── Image Upload (Multer)
 │   └── Email Service (Gmail SMTP)
-└── recipe-client/          # Frontend Client
-    ├── Angular 17
-    ├── Responsive Design
-    ├── Modern UI/UX
-    └── Bootstrap Icons
+├── recipe-client/          # Frontend Client
+│   ├── Angular 17
+│   ├── Responsive Design
+│   ├── Modern UI/UX
+│   └── Bootstrap Icons
+└── culinary-api-server/    # Professional API Server
+    ├── Advanced Features
+    ├── Professional Logging
+    ├── Enhanced Security
+    └── Comprehensive Documentation
 ```
 
 ## ⚡ Quick Start
