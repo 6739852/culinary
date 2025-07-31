@@ -2,25 +2,23 @@ import { Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { 
-    path: '', 
-    loadComponent: () => import('./components/layout/home.component').then(m => m.HomeComponent) 
-  },
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { 
     path: 'login', 
-    loadComponent: () => import('./components/auth/login.component').then(m => m.LoginComponent) 
+    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent) 
   },
   { 
     path: 'register', 
-    loadComponent: () => import('./components/auth/register.component').then(m => m.RegisterComponent) 
+    loadComponent: () => import('./pages/register/register.component').then(m => m.RegisterComponent) 
   },
   { 
     path: 'recipes', 
-    loadComponent: () => import('./components/recipes/recipe-list.component').then(m => m.RecipeListComponent) 
+    loadComponent: () => import('./pages/recipes/recipes-all.component').then(m => m.RecipesAllComponent) 
   },
   { 
-    path: 'recipe/:id', 
-    loadComponent: () => import('./components/recipes/recipe-detail.component').then(m => m.RecipeDetailComponent) 
+    path: 'recipe-details/:id', 
+    loadComponent: () => import('./pages/recipe-details/recipe-details.component').then(m => m.RecipeDetailsComponent),
+    canActivate: [AuthGuard]
   },
   { 
     path: 'my-recipes', 
@@ -33,7 +31,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { 
-    path: 'edit-recipe/:id', 
+    path: 'recipe-form/:id', 
     loadComponent: () => import('./components/recipes/recipe-form.component').then(m => m.RecipeFormComponent),
     canActivate: [AuthGuard]
   },

@@ -17,19 +17,16 @@ import { User } from '../../models/user.model';
         </a>
         
         <div class="nav-menu">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
-            <i class="bi bi-house"></i> Home
-          </a>
           <a routerLink="/recipes" routerLinkActive="active" class="nav-link">
-            <i class="bi bi-journal-bookmark"></i> Recipes
+            <i class="bi bi-journal-bookmark"></i> כל המתכונים
           </a>
           
           <ng-container *ngIf="currentUser$ | async as user; else guestMenu">
             <a routerLink="/my-recipes" routerLinkActive="active" class="nav-link">
-              <i class="bi bi-journal-bookmark"></i> My Recipes
+              <i class="bi bi-person-lines-fill"></i> המתכונים שלי
             </a>
             <a routerLink="/add-recipe" routerLinkActive="active" class="nav-link">
-              <i class="bi bi-plus-circle"></i> Add Recipe
+              <i class="bi bi-plus-circle"></i> הוסף מתכון
             </a>
             
             <div class="user-menu">
@@ -37,17 +34,20 @@ import { User } from '../../models/user.model';
                 <i class="bi bi-person-circle"></i> {{ user.username }}
               </span>
               <button (click)="logout()" class="btn btn-outline">
-                <i class="bi bi-box-arrow-right"></i> Logout
+                <i class="bi bi-box-arrow-right"></i> יציאה
               </button>
             </div>
           </ng-container>
           
           <ng-template #guestMenu>
+            <span class="guest-name">
+              <i class="bi bi-person"></i> אורח
+            </span>
             <a routerLink="/login" routerLinkActive="active" class="nav-link">
-              <i class="bi bi-box-arrow-in-right"></i> Login
+              <i class="bi bi-box-arrow-in-right"></i> כניסה
             </a>
             <a routerLink="/register" routerLinkActive="active" class="nav-link">
-              <i class="bi bi-person-plus"></i> Register
+              <i class="bi bi-person-plus"></i> הרשמה
             </a>
           </ng-template>
         </div>
@@ -112,11 +112,15 @@ import { User } from '../../models/user.model';
       border-left: 1px solid rgba(255,255,255,0.3);
     }
     
-    .user-name {
+    .user-name, .guest-name {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-weight: 500;
+    }
+    
+    .guest-name {
+      color: rgba(255,255,255,0.8);
     }
     
     .btn {
