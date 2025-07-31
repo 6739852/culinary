@@ -62,10 +62,11 @@ Works perfectly on:
 - Mobile-first responsive layout
 
 ## 🔧 Default Configuration
-- **Backend**: http://localhost:3000
-- **Frontend**: http://localhost:4200
-- **Database**: MongoDB (configured in backend)
-- **Email**: Gmail SMTP (configured in backend)
+- **Backend**: http://localhost:3000 ✅
+- **Frontend**: http://localhost:4200 ✅
+- **Database**: MongoDB (needs setup)
+- **Email**: Gmail SMTP (needs configuration)
+- **API Routes**: Fixed (no /api prefix) ✅
 
 ## 📋 API Endpoints Available
 

@@ -22,9 +22,9 @@ const userRoutes = require("./routes/users");
 const recipeRoutes = require("./routes/recipes");
 const categoryRoutes = require("./routes/categoryRoutes");
 
-app.use("/api/categories", categoryRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/recipes", recipeRoutes);
+app.use("/categories", categoryRoutes);
+app.use("/users", userRoutes);
+app.use("/recipes", recipeRoutes);
 
 // 🗄️ חיבור למסד נתונים
 mongoose.connect(process.env.MONGO_URI)
@@ -42,13 +42,13 @@ app.use("*", (req, res) => {
     error: {
       message: "Route not found",
       availableRoutes: [
-        "/api/users/test",
-        "/api/users/register",
-        "/api/users/login",
-        "/api/recipes",
-        "/api/recipes/upload-image", // 🆕
-        "/api/recipes/:id",
-        "/api/categories"
+        "/users/test",
+        "/users/register",
+        "/users/login",
+        "/recipes",
+        "/recipes/upload-image",
+        "/recipes/:id",
+        "/categories"
       ]
     }
   });
@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
 });
 
 // 🚀 הפעלת השרת
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server on port ${PORT}`);
   console.log(`📁 Static files served at: http://localhost:${PORT}/uploads`); // 🆕
